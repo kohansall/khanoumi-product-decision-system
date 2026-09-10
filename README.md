@@ -1,78 +1,95 @@
 # سیستم تصمیم‌گیری محصول خانومی
 
-پروژه نهایی بوتکمپ مدیریت محصول آکادمی همراه — کیس «خانومی».
+پروژه نهایی بوتکمپ مدیریت محصول، بازطراحی‌شده به‌عنوان یک Case Study قابل ممیزی و Portfolio-ready.
 
-## تز اصلی
+> وضعیت تصمیم :: **Guided Beauty Decision Assistant — Selected for Validation**  
+> این Feature هنوز Validation‌شده نیست. شواهد فعلی Opportunity را پشتیبانی می‌کنند، نه موفقیت قطعی راه‌حل را.
 
-**مسئله اصلی:** عدم اطمینان در تصمیم پیش از خرید  
-**فرصت منتخب:** کاهش Decision Uncertainty  
-**Feature Candidate:** Guided Beauty Decision Assistant  
-**وضعیت:** Selected for Validation — نه Validated Solution  
-**مسیر MVP:** Fake Door → Concierge / Wizard-of-Oz → Rule-based MVP → Pilot → Scale Decision
+## مسئله و فرصت
 
-## معماری مخزن
+شواهد چندمنبعی نشان می‌دهند Delivery در داده فعلی Root Problem اصلی نیست. سیگنال قوی‌تر به دشواری ارزیابی Fit محصول، پراکندگی اطلاعات و پایین‌بودن Decision Confidence مربوط است. Opportunity منتخب، کاهش effort و عدم‌قطعیت انتخاب محصول با یک مسیر هدایت‌شده، کوتاه، توضیح‌پذیر و متصل به موجودی واقعی است.
 
-```text
-.
-├── docs/questions/        # Q01 تا Q30
-├── research/              # شواهد و قواعد تحقیق
-├── methodology/           # DECAF و Quantification
-├── design/                # Figma و FigJam
-├── delivery/              # Jira و Traceability
-├── financial/             # Q27 تا Q29
-└── presentation/          # روایت ارائه نهایی
-```
+## Feature و مسیر MVP
 
-## ۳۰ سؤال
+**Fake Door → Concierge / Wizard-of-Oz → Rule-based MVP → Controlled Pilot**
 
-- [Q01 — جریان‌های فعلی کاربر](docs/questions/Q01.md) — 84/A
-- [Q02 — کشف مشکلات](docs/questions/Q02.md) — 92/A
-- [Q03 — اعتبارسنجی و اولویت‌بندی](docs/questions/Q03.md) — 89/A
-- [Q04 — نیازهای مشترک](docs/questions/Q04.md) — 89/A
-- [Q05 — رقبا](docs/questions/Q05.md) — 93/A
-- [Q06 — مقایسه قابلیت رقبا](docs/questions/Q06.md) — 89/A
-- [Q07 — رهبران جهانی](docs/questions/Q07.md) — 92/A
-- [Q08 — روندهای جهانی](docs/questions/Q08.md) — 88/A
-- [Q09 — فضای فرصت](docs/questions/Q09.md) — 91/A
-- [Q10 — انتخاب Feature](docs/questions/Q10.md) — 72/B
-- [Q11 — درد و نیاز بازار](docs/questions/Q11.md) — 88/A
-- [Q12 — منطق شواهد تا تصمیم](docs/questions/Q12.md) — 87/A
-- [Q13 — اثر مورد انتظار](docs/questions/Q13.md) — 78/B
-- [Q14 — چرا ارزش تست دارد](docs/questions/Q14.md) — 78/B
-- [Q15 — دامنه MVP](docs/questions/Q15.md) — 94/A
-- [Q16 — قابلیت‌های MVP](docs/questions/Q16.md) — 93/A
-- [Q17 — Roadmap](docs/questions/Q17.md) — 78/B
-- [Q18 — Epics](docs/questions/Q18.md) — Artifact
-- [Q19 — User Stories](docs/questions/Q19.md) — Artifact
-- [Q20 — Sprint Plan](docs/questions/Q20.md) — Artifact
-- [Q21 — KPIها](docs/questions/Q21.md) — 86/A
-- [Q22 — Success Metrics & Guardrails](docs/questions/Q22.md) — 74/B
-- [Q23 — User Journey](docs/questions/Q23.md) — Artifact
-- [Q24 — Low-Fidelity](docs/questions/Q24.md) — Artifact
-- [Q25 — Acquisition](docs/questions/Q25.md) — 68/B
-- [Q26 — Retention](docs/questions/Q26.md) — 66/B
-- [Q27 — Cost Model](docs/questions/Q27.md) — 58/C
-- [Q28 — Revenue Forecast](docs/questions/Q28.md) — 49/C
-- [Q29 — ROI / Payback](docs/questions/Q29.md) — 45/C
-- [Q30 — Final Integration](docs/questions/Q30.md) — 79/B
+هر مرحله Gate دارد. AI خود Feature نیست و فقط پس از اثبات ارزش Feature می‌تواند به‌عنوان روش پیاده‌سازی بررسی شود.
 
-## سیستم‌های اصلی
+## دسترسی سریع
 
-- Confluence: https://kohansal.atlassian.net/wiki/spaces/PM/pages/8028163
-- Jira KAN: https://kohansal.atlassian.net/jira/software/projects/KAN
-- Figma V1: https://www.figma.com/design/BKS86q9M6nJPNLlegK7Zwz
-- Figma V2: https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl
-- FigJam: https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3
+- [Prototype تعاملی](design/prototype/index.html)
+- [VOC dashboard](discovery/voc/interactive-dashboard/)
+- [VOC cleaned canonical dataset](discovery/voc/cleaned/)
+- [فهرست Q01 تا Q30](docs/questions/)
+- [Final report](docs/final-report/)
+- [Final presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx)
+- [Jira project KAN](https://kohansal.atlassian.net/jira/software/projects/KAN)
+- [Confluence START HERE](https://kohansal.atlassian.net/wiki/spaces/PM/pages/8028163)
+- [Figma V2](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl)
 
-## قواعد Evidence Integrity
+## معماری Evidence
 
-- Fact، Evidence، Logical Inference و Hypothesis از هم جدا نگه داشته می‌شوند.
-- چند خروجی از یک Dataset، چند Evidence مستقل محسوب نمی‌شوند.
-- Benchmark اثبات Demand محلی نیست.
-- Convenience Sample به Population تعمیم داده نمی‌شود.
-- Q18/Q19/Q20/Q23/Q24 عمداً Confidence پژوهشی ندارند.
-- مدل مالی تا ورود داده معتبر Stage-Gated و Break-even based باقی می‌ماند.
+`raw → cleaned → analysis → synthesis → decision → delivery → measurement`
 
-## حریم خصوصی و حق نشر
+یک Dataset فقط یک مالک canonical دارد. بخش‌های دیگر با لینک داخلی به آن ارجاع می‌دهند. هر Claim تحلیلی باید یکی از این چهار برچسب را داشته باشد :: **Fact · Evidence · Logical Inference · Hypothesis**.
 
-داده خام دارای PII و منابع دارای حق نشر در مخزن عمومی بازنشر نمی‌شوند. فقط خروجی تحلیلی، لینک منابع و Artifactهای مناسب Portfolio نگهداری می‌شوند.
+## DECAF
+
+DECAF در این پروژه یک روش اختصاصی برای Decision Confidence است، نه یک استاندارد جهانی و نه احتمال آماری موفقیت.
+
+| کلاس | معنای استفاده |
+|---|---|
+| A | قابل پذیرش و دفاع؛ شواهد چندمنبعی و Caveat کنترل‌شده |
+| B | قابل استفاده با Caveat؛ تصمیم ممکن است اما Missing Data مهم است |
+| C | جهت‌نما؛ فقط Scenario یا Hypothesis، نه ادعای قطعی |
+| D | ناکافی برای تصمیم |
+
+Cap Rule و کنترل Double Counting مانع بالا رفتن مصنوعی Confidence می‌شوند. برای Q18، Q19، Q20، Q23 و Q24 Confidence پژوهشی ساخته نشده، چون Artifact اجرایی یا طراحی‌اند.
+
+## نقش ابزارها
+
+| سیستم | Source of Truth |
+|---|---|
+| Confluence | Evidence، تحلیل، تصمیم و Caveat |
+| GitHub | Artifactها، داده‌های نهایی، خروجی خواندنی و Versioning |
+| Jira | Delivery برای Q17 تا Q20 |
+| Figma | Design، Journey، Low-fi و Prototype design |
+
+## نقشه ۳۰ سؤال
+
+| سؤال | موضوع | DECAF Confidence |
+|---|---|---|
+| [Q01](docs/questions/q01/) | جریان فعلی کاربر | 84/100 — A |
+| [Q02](docs/questions/q02/) | کشف مسئله | 92/100 — A |
+| [Q03](docs/questions/q03/) | اعتبارسنجی و اولویت‌بندی مسئله | 89/100 — A |
+| [Q04](docs/questions/q04/) | نیازهای مشترک کاربران | 89/100 — A |
+| [Q05](docs/questions/q05/) | مجموعه رقبا | 93/100 — A |
+| [Q06](docs/questions/q06/) | مقایسه قابلیت رقبا | 89/100 — A |
+| [Q07](docs/questions/q07/) | الگوهای رهبران جهانی | 92/100 — A |
+| [Q08](docs/questions/q08/) | روندهای بازار | 88/100 — A |
+| [Q09](docs/questions/q09/) | سنتز فرصت‌ها | 91/100 — A |
+| [Q10](docs/questions/q10/) | انتخاب Feature | 72/100 — B |
+| [Q11](docs/questions/q11/) | Pain و نیاز بازار | 88/100 — A |
+| [Q12](docs/questions/q12/) | منطق Evidence تا Decision | 87/100 — A |
+| [Q13](docs/questions/q13/) | اثر مورد انتظار | 78/100 — B |
+| [Q14](docs/questions/q14/) | چرایی ارزش آزمون | 78/100 — B |
+| [Q15](docs/questions/q15/) | تعریف MVP | 94/100 — A |
+| [Q16](docs/questions/q16/) | قابلیت‌های اصلی MVP | 93/100 — A |
+| [Q17](docs/questions/q17/) | Roadmap | 78/100 — B |
+| [Q18](docs/questions/q18/) | Epics | — اجرایی/طراحی |
+| [Q19](docs/questions/q19/) | User Stories | — اجرایی/طراحی |
+| [Q20](docs/questions/q20/) | برنامه اسپرینت دوهفته‌ای | — اجرایی/طراحی |
+| [Q21](docs/questions/q21/) | KPIها | 86/100 — A |
+| [Q22](docs/questions/q22/) | Success Metrics و Guardrails | 74/100 — B |
+| [Q23](docs/questions/q23/) | سفر جدید کاربر | — اجرایی/طراحی |
+| [Q24](docs/questions/q24/) | Low-Fidelity Wireframes | — اجرایی/طراحی |
+| [Q25](docs/questions/q25/) | Acquisition | 68/100 — B |
+| [Q26](docs/questions/q26/) | Retention | 66/100 — B |
+| [Q27](docs/questions/q27/) | مدل هزینه | 58/100 — C |
+| [Q28](docs/questions/q28/) | پیش‌بینی درآمد | 49/100 — C |
+| [Q29](docs/questions/q29/) | ROI و Payback | 45/100 — C |
+| [Q30](docs/questions/q30/) | یکپارچه‌سازی و ارائه نهایی | 79/100 — B |
+
+## محدودیت مهم
+
+این Repo شامل Validation ساختگی، Sprint history ساختگی یا Forecast تک‌عددی بدون baseline نیست. Gapها در [Final audit](docs/final-report/audit-report.md) ثبت شده‌اند.
