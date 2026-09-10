@@ -30,6 +30,6 @@
 - Baseline داخلی Funnel، MDE و Sample Size
 - Capacity و Estimate واقعی Engineering
 - اقتصاد واحد Feature-specific برای Q27 تا Q29
-- لینک مستقیم FigJam مستقل؛ Figma V2 موجود است
+- Export مستقل FigJam داخل Repo موجود نیست؛ لینک مستقیم FigJam و Figma V2 ثبت شده‌اند
 - Validation واقعی؛ وضعیت Feature همچنان Selected for Validation است
 - Survey Current Buyers، Survey Never/Lapsed و Pharmacy Interview باید در صورت یافتن فایل اصل افزوده شوند
