@@ -4,7 +4,7 @@
 
 - Q01 تا Q30 به‌صورت Markdown کامل و DOCX منبع
 - Prototype canonical، Presentation، نقشه‌های Discovery، NiniSite analysis، Benchmark و Opportunity Map
-- VOC raw و cleaned به‌صورت anonymized
+- VOC raw و cleaned به‌صورت anonymized و CSV shardهای دارای Manifest؛ یک Dataset منطقی برای هر لایه
 - Jira mapping و لینک‌های Issue-level
 
 ## Deduplicate‌شده
