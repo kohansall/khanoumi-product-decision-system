@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خانومی | راهنمای هوشمند انتخاب محصول (Smart Beauty Advisor)</title>
+    <!-- Vazirmatn Persian Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #E91E63;
+            --primary-hover: #D81B60;
+            --primary-light: #FCE4EC;
+            --accent-color: #C2185B;
+            --bg-body: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --text-main: #212121;
+            --text-muted: #666666;
+            --text-light: #9E9E9E;
+            --border-color: #EEEEEE;
+            --success-color: #4CAF50;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(233, 30, 99, 0.1);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #121212;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        /* Documentation Presentation Header */
+        .doc-header {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, #1e1e24 0%, #2a0818 100%);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(233, 30, 99, 0.2);
+        }
+
+        .doc-header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .doc-header p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .section-container.active {
+            display: block;
+        }
+
+        /* Mobile Device Emulator Frame */
+        .device-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .mobile-frame {
+            width: 390px;
+            height: 844px;
+            background-color: var(--bg-body);
+            border-radius: 48px;
+            box-shadow: 0 0 0 12px #2d2d2d, 0 20px 50px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #1a1a1a;
+        }
+
+        /* Dynamic Island simulation */
+        .camera-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background-color: #000;
+            border-radius: 20px;
+            z-index: 9999;
+        }
+
+        .app-header {
+            background: #ffffff;
+            height: 60px;
+            padding-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .app-header .logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .header-back-btn {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-back-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .app-content {
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        /* Views Styles */
+        .view {
+            display: none;
+            flex-direction: column;
+            min-height: 100%;
+            padding: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .view.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Components */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background: #E0E0E0;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            width: 16.66%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-option {
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary-light);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .quiz-option .check-icon {
+            opacity: 0;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .quiz-option.selected .check-icon {
+            opacity: 1;
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .match-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #E8F5E9;
+            color: #2E7D32;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .brand-origin-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #F3E5F5;
+            color: #7B1FA2;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            margin-top: 10px;
+            background-color: #fcfcfc;
+        }
+
+        .product-brand {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .product-benefit {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background: var(--primary-light);
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .product-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .product-price {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .rating {
+            color: #FFB300;
+            font-size: 0.85rem;
+        }
+
+        /* Bottom Sheet / Modal */
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            justify-content: flex-end;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .bottom-sheet {
+            background: #ffffff;
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+            padding: 24px;
+            max-height: 80%;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* Documentation & Flow Nodes Styles */
+        .doc-section {
+            background: #1e1e24;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            border: 1px solid #333;
+        }
+
+        .doc-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .flow-node {
+            background: #2a2a35;
+            border: 2px solid var(--primary-color);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            text-align: center;
+            min-width: 140px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .flow-node.future {
+            border-style: dashed;
+            border-color: #777;
+            color: #aaa;
+        }
+
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #252530;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-right: 4px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .info-card ul {
+            list-style-position: inside;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid var(--primary-light);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="doc-header">
+        <h1><i class="fa-solid fa-wand-magic-sparkles"></i> Khanoumi Smart Beauty Advisor</h1>
+        <p>راهنمای هوشمند انتخاب محصول در خانومی — پروتوتایپ تعاملی مکمل تجربه خرید آنلاین زیبایی</p>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('prototype-section')"><i class="fa-solid fa-mobile-screen"></i> پروتوتایپ تعاملی (Interactive Demo)</button>
+            <button class="tab-btn" onclick="switchTab('flow-section')"><i class="fa-solid fa-diagram-project"></i> جریان کاربر (User Flow)</button>
+            <button class="tab-btn" onclick="switchTab('logic-section')"><i class="fa-solid fa-brain"></i> منطق پیشنهاددهی & MVP</button>
+            <button class="tab-btn" onclick="switchTab('ux-section')"><i class="fa-solid fa-heart"></i> اصول UX & شفافیت</button>
+        </div>
+    </header>
+
+    <!-- TAB 1: INTERACTIVE PROTOTYPE -->
+    <main id="prototype-section" class="section-container active">
+        <div class="device-wrapper">
+            <div class="mobile-frame">
+                <div class="camera-notch"></div>
+                
+                <!-- App Header with Smart Back Button -->
+                <div class="app-header">
+                    <div class="logo">khanoumi</div>
+                    <div id="header-back-btn" class="header-back-btn" onclick="goBack()" style="visibility: hidden;">
+                        <span style="font-size: 0.8rem; font-weight: 600;">بازگشت</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                </div>
+
+                <!-- Main Dynamic Content -->
+                <div class="app-content">
+
+                    <!-- SCREEN 1: Entry -->
+                    <div id="view-1" class="view active">
+                        <div style="text-align: center; margin-top: 10px;">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80" alt="Cosmetics" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 20px;">
+                            <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 10px;">نمی‌دونی کدوم محصول برای تو مناسبه؟</h2>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.6;">با چند سؤال کوتاه و هوشمندانه، دقیقا محصولی که نیاز داری رو پیدا کن.</p>
+                            
+                            <button class="btn btn-primary" onclick="goToScreen('view-2')" style="margin-bottom: 12px;">
+                                راهنمای انتخاب محصول <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <span style="font-size: 0.8rem; color: var(--text-light);"><i class="fa-regular fa-clock"></i> کمتر از ۲ دقیقه وقتت رو می‌گیره</span>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 2: Advisor Introduction -->
+                    <div id="view-2" class="view">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; text-align: center;">محصول مناسب خودت رو پیدا کن</h2>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px;">
+                            <div style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <i class="fa-solid fa-bolt" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600;">انتخاب سریع‌تر و بدون سردرگمی</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <i class="fa-solid fa-bullseye" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600;">پیشنهاد متناسب با دقیق‌ترین نیازهای شما</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <i class="fa-solid fa-shield-halved" style="color: var(--primary-color); font-size: 1.2rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600;">توضیح شفاف اینکه چرا هر محصول پیشنهاد شده</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-2-5')">شروع کنیم</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 2.5: Quiz Step 1 - Category Selection -->
+                    <div id="view-2-5" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۱ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">دسته‌بندی محصول</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 16.66%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">دنبال چه نوع محصولی هستی؟</h3>
+
+                        <div id="options-category">
+                            <div class="quiz-option selected" onclick="selectOption(this, 'category', 'مراقبت پوست')">
+                                <span><i class="fa-solid fa-pump-soap" style="margin-left: 8px; color: var(--primary-color);"></i> مراقبت پوست</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'category', 'آرایشی')">
+                                <span><i class="fa-solid fa-wand-magic-sparkles" style="margin-left: 8px; color: var(--primary-color);"></i> آرایشی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'category', 'بهداشت شخصی')">
+                                <span><i class="fa-solid fa-shower" style="margin-left: 8px; color: var(--primary-color);"></i> بهداشت شخصی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'category', 'عطر و اسپری')">
+                                <span><i class="fa-solid fa-spray-can" style="margin-left: 8px; color: var(--primary-color);"></i> عطر و اسپری</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-3')">ادامه</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 3: Quiz Step 2 - Skin Type -->
+                    <div id="view-3" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۲ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">نوع پوست</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 33.33%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">نوع پوستت رو می‌دونی؟</h3>
+
+                        <div id="options-skin">
+                            <div class="quiz-option selected" onclick="selectOption(this, 'skin', 'خشک')">
+                                <span>پوست خشک</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'skin', 'چرب')">
+                                <span>پوست چرب</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'skin', 'مختلط')">
+                                <span>پوست مختلط</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'skin', 'نرمال')">
+                                <span>پوست نرمال</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'skin', 'حساس')">
+                                <span>پوست حساس</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-4')">ادامه</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 4: Quiz Step 3 - Main Concern -->
+                    <div id="view-4" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۳ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">دغدغه اصلی</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">بیشتر دنبال حل چه مشکلی هستی؟</h3>
+
+                        <div id="options-concern">
+                            <div class="quiz-option selected" onclick="selectOption(this, 'concern', 'خشکی و دهیدراته‌بودن')">
+                                <span>خشکی و کشیدگی پوست</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'concern', 'جوش و آکنه')">
+                                <span>جوش و لک آکنه</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'concern', 'چین و چروک')">
+                                <span>خطوط و چین و چروک</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'concern', 'کدری و تیرگی')">
+                                <span>کدری و خستگی پوست</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-5')">ادامه</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 5: Quiz Step 4 - Goal -->
+                    <div id="view-5" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۴ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">هدف خرید</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 66.66%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">هدفت از خرید این محصول چیه؟</h3>
+
+                        <div id="options-goal">
+                            <div class="quiz-option selected" onclick="selectOption(this, 'goal', 'آبرسانی عمیق')">
+                                <span>آبرسانی عمیق و حفظ رطوبت</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'goal', 'کنترل چربی')">
+                                <span>کنترل چربی و مات‌کنندگی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'goal', 'روشن‌تر شدن پوست')">
+                                <span>روشن‌تر شدن و شفافیت</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'goal', 'ضدپیری و جوانسازی')">
+                                <span>ضدپیری و جوانسازی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-6')">ادامه</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 6: Quiz Step 5 - Budget -->
+                    <div id="view-6" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۵ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">محدوده بودجه</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 83.33%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">حدود بودجه‌ات چقدره؟</h3>
+
+                        <div id="options-budget">
+                            <div class="quiz-option" onclick="selectOption(this, 'budget', 'اقتصادی (تا ۱ میلیون تومان)')">
+                                <span>اقتصادی (تا ۱ میلیون تومان)</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option selected" onclick="selectOption(this, 'budget', 'متوسط (از ۱ تا ۳ میلیون تومان)')">
+                                <span>متوسط (از ۱ تا ۳ میلیون تومان)</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'budget', 'پریمیوم (از ۳ میلیون تومان به بالا)')">
+                                <span>پریمیوم (از ۳ میلیون تومان به بالا)</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'budget', 'فرقی نمی‌کنه')">
+                                <span>فرقی نمی‌کنه</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-6-5')">ادامه</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 6.5: Quiz Step 6 - Brand Origin Filter -->
+                    <div id="view-6-5" class="view">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">مرحله ۶ از ۶</span>
+                            <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 700;">منشأ برند</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 100%;"></div>
+                        </div>
+
+                        <h3 style="font-size: 1.15rem; margin-bottom: 20px;">ترجیح می‌دی محصول ایرانی باشه یا خارجی؟</h3>
+
+                        <div id="options-origin">
+                            <div class="quiz-option" onclick="selectOption(this, 'origin', 'ایرانی')">
+                                <span><i class="fa-solid fa-flag" style="margin-left: 8px; color: var(--primary-color);"></i> برند ایرانی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option" onclick="selectOption(this, 'origin', 'خارجی')">
+                                <span><i class="fa-solid fa-globe" style="margin-left: 8px; color: var(--primary-color);"></i> برند خارجی</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                            <div class="quiz-option selected" onclick="selectOption(this, 'origin', 'فرقی نمی‌کنه')">
+                                <span><i class="fa-solid fa-arrows-rotate" style="margin-left: 8px; color: var(--primary-color);"></i> فرقی نمی‌کنه</span>
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-7')">تکمیل پروفایل</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 7: User Profile Summary -->
+                    <div id="view-7" class="view">
+                        <h2 style="font-size: 1.25rem; margin-bottom: 10px;">پروفایل انتخاب تو</h2>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">خلاصه اطلاعاتی که وارد کردی به شکل زیر است:</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">دسته‌بندی:</span>
+                                    <strong id="summary-category" style="font-size: 0.85rem;">مراقبت پوست</strong>
+                                </div>
+                                <button onclick="goToScreen('view-2-5')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">نوع پوست:</span>
+                                    <strong id="summary-skin" style="font-size: 0.85rem;">خشک</strong>
+                                </div>
+                                <button onclick="goToScreen('view-3')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">دغدغه اصلی:</span>
+                                    <strong id="summary-concern" style="font-size: 0.85rem;">خشکی و دهیدراته‌بودن</strong>
+                                </div>
+                                <button onclick="goToScreen('view-4')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">هدف خرید:</span>
+                                    <strong id="summary-goal" style="font-size: 0.85rem;">آبرسانی عمیق</strong>
+                                </div>
+                                <button onclick="goToScreen('view-5')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">محدوده بودجه:</span>
+                                    <strong id="summary-budget" style="font-size: 0.85rem;">متوسط (از ۱ تا ۳ میلیون تومان)</strong>
+                                </div>
+                                <button onclick="goToScreen('view-6')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+
+                            <div style="background: #fff; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: var(--text-light); display: block;">منشأ برند:</span>
+                                    <strong id="summary-origin" style="font-size: 0.85rem;">فرقی نمی‌کنه</strong>
+                                </div>
+                                <button onclick="goToScreen('view-6-5')" style="background: none; border: none; color: var(--primary-color); font-weight: 700; cursor: pointer; font-size: 0.8rem;">ویرایش</button>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
+                            <button class="btn btn-primary" onclick="startRecommendationLoading()">مشاهده پیشنهادها</button>
+                            <button class="btn btn-outline" onclick="goToScreen('view-2-5')">ویرایش همه پاسخ‌ها</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 8: Recommendation Loading -->
+                    <div id="view-8" class="view" style="justify-content: center; align-items: center; text-align: center;">
+                        <div class="loader"></div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px;">داریم بهترین گزینه‌ها رو برات پیدا می‌کنیم...</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 80%;">نیازها و ترجیحاتت رو با محصولات موجود در خانومی مقایسه می‌کنیم.</p>
+                    </div>
+
+                    <!-- SCREEN 9: Recommendation Results (5 Products) -->
+                    <div id="view-9" class="view">
+                        <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 4px;">پیشنهادهای مناسب برای تو</h2>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;">۵ محصول برتر بر اساس پروفایل شخصی تو</p>
+
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <span class="match-badge"><i class="fa-solid fa-star"></i> ۹۸٪ تطابق</span>
+                            <span class="brand-origin-badge">خارجی</span>
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" class="product-img" alt="Product 1">
+                            <span class="product-brand">لاروش پوزای (La Roche-Posay)</span>
+                            <div class="product-title">سرم آبرسانی هیالورونیک اسید B5</div>
+                            <div class="product-benefit">✓ آبرسانی عمیق و ترمیم‌کننده سد دفاعی</div>
+                            <div class="product-price-row">
+                                <span class="product-price">۱,۷۵۰,۰۰۰ تومان</span>
+                                <span class="rating">★ ۴.۸</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn btn-secondary" onclick="openWhyModal('سرم هیالورونیک لاروش پوزای', ['متناسب با دسته‌بندی مراقبت پوست', 'مناسب پوست خشک و دهیدراته', 'آبرسانی عمیق با هیالورونیک اسید خالص', 'در محدوده بودجه انتخابی شما (متوسط)', 'برند خارجی اصل با استانداردهای جهانی'])" style="padding: 8px; font-size: 0.8rem; flex: 1;">چرا پیشنهاد شده؟</button>
+                                <button class="btn btn-primary" onclick="showProductDetail('سرم آبرسانی هیالورونیک اسید B5', 'لاروش پوزای (La Roche-Posay)', '۱,۷۵۰,۰۰۰ تومان', 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80', 'خارجی')" style="padding: 8px; font-size: 0.8rem; flex: 1;">مشاهده محصول</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <span class="match-badge" style="background: #E3F2FD; color: #1565C0;"><i class="fa-solid fa-thumbs-up"></i> ۹۴٪ تطابق</span>
+                            <span class="brand-origin-badge">خارجی</span>
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80" class="product-img" alt="Product 2">
+                            <span class="product-brand">نوتروژینا (Neutrogena)</span>
+                            <div class="product-title">واتر ژل آبرسان هیدروبوست</div>
+                            <div class="product-benefit">✓ حفظ رطوبت تا ۲۴ ساعت بدون چربی</div>
+                            <div class="product-price-row">
+                                <span class="product-price">۱,۶۴۰,۰۰۰ تومان</span>
+                                <span class="rating">★ ۴.۷</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn btn-secondary" onclick="openWhyModal('واتر ژل آبرسان نوتروژینا', ['بافت سبک با جذب بسیار سریع', 'رفع تشنگی و خشکی پوست', 'حاوی هیالورونیک اسید فعال', 'برند خارجی معتبر'])" style="padding: 8px; font-size: 0.8rem; flex: 1;">چرا پیشنهاد شده؟</button>
+                                <button class="btn btn-primary" onclick="showProductDetail('واتر ژل آبرسان هیدروبوست', 'نوتروژینا (Neutrogena)', '۱,۶۴۰,۰۰۰ تومان', 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', 'خارجی')" style="padding: 8px; font-size: 0.8rem; flex: 1;">مشاهده محصول</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <span class="match-badge" style="background: #E3F2FD; color: #1565C0;"><i class="fa-solid fa-gem"></i> ۹۳٪ تطابق</span>
+                            <span class="brand-origin-badge">خارجی</span>
+                            <img src="https://images.unsplash.com/photo-1608248597309-45de1787407b?w=400&q=80" class="product-img" alt="Product 3">
+                            <span class="product-brand">کلینیک (Clinique)</span>
+                            <div class="product-title">کرم آبرسان ۱۰۰ ساعته مویسچر سرج</div>
+                            <div class="product-benefit">✓ آبرسانی فوق‌العاده عمیق و ۱۰۰ ساعته</div>
+                            <div class="product-price-row">
+                                <span class="product-price">۲,۴۵۰,۰۰۰ تومان</span>
+                                <span class="rating">★ ۴.۹</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn btn-secondary" onclick="openWhyModal('کرم آبرسان ۱۰۰ ساعته کلینیک', ['کیفیت فوق‌العاده بالا و آبرسانی عمیق ۱۰۰ ساعته', 'فرمولاسیون پیشرفته فاقد عطر و مواد حساسیت‌زا', 'بافت ژل-کرم بسیار سبک و زودجذب', 'برند لوکس و لوکوموتیو ساخت آمریکا'])" style="padding: 8px; font-size: 0.8rem; flex: 1;">چرا پیشنهاد شده؟</button>
+                                <button class="btn btn-primary" onclick="showProductDetail('کرم آبرسان ۱۰۰ ساعته مویسچر سرج', 'کلینیک (Clinique)', '۲,۴۵۰,۰۰۰ تومان', 'https://images.unsplash.com/photo-1608248597309-45de1787407b?w=500&q=80', 'خارجی')" style="padding: 8px; font-size: 0.8rem; flex: 1;">مشاهده محصول</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <span class="match-badge" style="background: #FFF3E0; color: #E65100;"><i class="fa-solid fa-piggy-bank"></i> ۸۸٪ تطابق</span>
+                            <span class="brand-origin-badge" style="background: #E8F5E9; color: #2E7D32;">ایرانی</span>
+                            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80" class="product-img" alt="Product 4">
+                            <span class="product-brand">سی‌گل (Seagull)</span>
+                            <div class="product-title">کرم آبرسان فوق‌العاده قوی هیالورونیک</div>
+                            <div class="product-benefit">✓ غنی شده با ویتامین F و B5 - اقتصادی</div>
+                            <div class="product-price-row">
+                                <span class="product-price">۴۸۰,۰۰۰ تومان</span>
+                                <span class="rating">★ ۴.۵</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn btn-secondary" onclick="openWhyModal('کرم آبرسان سی‌گل', ['گزینه فوق‌العاده اقتصادی و باکیفیت', 'مناسب برای استفاده روزانه پوست خشک', 'التیام‌بخش کشیدگی پوست', 'برند ایرانی با سابقه درخشان'])" style="padding: 8px; font-size: 0.8rem; flex: 1;">چرا پیشنهاد شده؟</button>
+                                <button class="btn btn-primary" onclick="showProductDetail('کرم آبرسان فوق‌العاده قوی', 'سی‌گل (Seagull)', '۴۸۰,۰۰۰ تومان', 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80', 'ایرانی')" style="padding: 8px; font-size: 0.8rem; flex: 1;">مشاهده محصول</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <span class="match-badge" style="background: #E8F5E9; color: #2E7D32;"><i class="fa-solid fa-shield-cat"></i> ۸۵٪ تطابق</span>
+                            <span class="brand-origin-badge">خارجی</span>
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80" class="product-img" alt="Product 5">
+                            <span class="product-brand">بیودرما (Bioderma)</span>
+                            <div class="product-title">ژل شستشوی آبرسان اتودرم</div>
+                            <div class="product-benefit">✓ شوینده ملایم بدون ایجاد خشک‌کنندگی</div>
+                            <div class="product-price-row">
+                                <span class="product-price">۱,۵۲۰,۰۰۰ تومان</span>
+                                <span class="rating">★ ۴.۶</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn btn-secondary" onclick="openWhyModal('ژل شستشوی اتودرم بیودرما', ['مکمل روتین آبرسانی پوست خشک', 'عدم آسیب به چربی طبیعی پوست', 'توصیه شده برای پوست‌های حساس', 'برند تخصصی فرانسوی'])" style="padding: 8px; font-size: 0.8rem; flex: 1;">چرا پیشنهاد شده؟</button>
+                                <button class="btn btn-primary" onclick="showProductDetail('ژل شستشوی آبرسان اتودرم', 'بیودرما (Bioderma)', '۱,۵۲۰,۰۰۰ تومان', 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80', 'خارجی')" style="padding: 8px; font-size: 0.8rem; flex: 1;">مشاهده محصول</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- SCREEN 11: Product Detail Page (PDP) -->
+                    <div id="view-11" class="view">
+                        <img id="pdp-img" src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80" style="width: 100%; height: 210px; object-fit: contain; border-radius: var(--radius-md); background: #fff; padding: 10px; border: 1px solid var(--border-color); margin-bottom: 15px;" alt="Product Detail">
+
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="pdp-brand" style="font-size: 0.85rem; color: var(--text-light);">لاروش پوزای (La Roche-Posay)</span>
+                            <span id="pdp-origin" class="brand-origin-badge" style="position: static;">خارجی</span>
+                        </div>
+                        <h2 id="pdp-title" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; margin-top: 4px;">سرم آبرسانی هیالورونیک اسید B5</h2>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span class="rating">★ ۴.۸ (۱۲۴ نظر)</span>
+                            <span id="pdp-price" class="product-price">۱,۷۵۰,۰۰۰ تومان</span>
+                        </div>
+
+                        <!-- Personalized Explanation Banner -->
+                        <div style="background: var(--primary-light); border: 1px solid var(--primary-color); border-radius: var(--radius-md); padding: 14px; margin-bottom: 15px;">
+                            <strong style="color: var(--primary-color); font-size: 0.85rem; display: block; margin-bottom: 6px;">
+                                <i class="fa-solid fa-sparkles"></i> چرا برای تو مناسبه؟
+                            </strong>
+                            <ul style="font-size: 0.8rem; color: var(--text-main); padding-right: 18px; line-height: 1.6;">
+                                <li id="pdp-cat-match">تطابق با دسته‌بندی انتخابی (مراقبت پوست)</li>
+                                <li>کاملاً مناسب با نوع پوست شما (خشک)</li>
+                                <li>پاسخگوی هدف انتخابی (آبرسانی عمیق)</li>
+                                <li>متناسب با محدوده بودجه مشخص‌شده</li>
+                                <li id="pdp-origin-match">تطابق با ترجیح برند شما</li>
+                            </ul>
+                        </div>
+
+                        <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
+                            <strong>توضیحات محصول:</strong><br>
+                            این محصول با فرمولاسیون اختصاصی خود، رطوبت مورد نیاز پوست‌های خشک و دهیدراته را تأمین کرده و سد دفاعی پوست را در برابر عوامل محیطی تقویت می‌کند.
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-12')">افزودن به سبد خرید</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 12: Add to Cart Success -->
+                    <div id="view-12" class="view" style="justify-content: center; text-align: center;">
+                        <div style="background: #E8F5E9; color: var(--success-color); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px auto;">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 10px;">محصول به سبدت اضافه شد!</h2>
+                        <p id="cart-product-title" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">سرم آبرسانی هیالورونیک اسید B5</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <button class="btn btn-primary" onclick="goToScreen('view-13')">ادامه و ثبت نظر (بازخورد)</button>
+                            <button class="btn btn-outline" onclick="goToScreen('view-9')">مشاهده بقیه پیشنهادها</button>
+                        </div>
+                    </div>
+
+                    <!-- SCREEN 13: Feedback -->
+                    <div id="view-13" class="view">
+                        <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; text-align: center;">بازخورد شما</h2>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-bottom: 25px;">این پیشنهاد چقدر برات مناسب و مفید بود؟</p>
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+                            <button class="btn btn-outline" onclick="showFeedbackDetails(true)" style="flex: 1; flex-direction: column; gap: 8px; padding: 20px;">
+                                <i class="fa-solid fa-thumbs-up" style="font-size: 1.5rem; color: var(--success-color);"></i>
+                                <span>عالی بود 👍</span>
+                            </button>
+                            <button class="btn btn-outline" onclick="showFeedbackDetails(false)" style="flex: 1; flex-direction: column; gap: 8px; padding: 20px;">
+                                <i class="fa-solid fa-thumbs-down" style="font-size: 1.5rem; color: #E53935;"></i>
+                                <span>مناسب نبود 👎</span>
+                            </button>
+                        </div>
+
+                        <!-- UPDATED INTERACTIVE FEEDBACK REASON LIST -->
+                        <div id="negative-reason" style="display: none; background: #fff; padding: 15px; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 20px;">
+                            <span style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 12px;">چه چیزی مناسب نبود؟</span>
+                            <div id="feedback-options-container" style="display: flex; flex-direction: column; gap: 8px;">
+                                <div class="quiz-option" style="padding: 12px; font-size: 0.85rem; margin-bottom: 0;" onclick="selectFeedbackReason(this)">
+                                    <span>محصول مناسب نیازم نبود</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                                <div class="quiz-option" style="padding: 12px; font-size: 0.85rem; margin-bottom: 0;" onclick="selectFeedbackReason(this)">
+                                    <span>قیمت مناسب نبود</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                                <div class="quiz-option" style="padding: 12px; font-size: 0.85rem; margin-bottom: 0;" onclick="selectFeedbackReason(this)">
+                                    <span>ترجیح برند (ایرانی/خارجی) رعایت نشد</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                                <div class="quiz-option" style="padding: 12px; font-size: 0.85rem; margin-bottom: 0;" onclick="selectFeedbackReason(this)">
+                                    <span>اطلاعات کافی نبود</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: auto;">
+                            <button class="btn btn-primary" onclick="submitFeedback()">ثبت و پایان</button>
+                        </div>
+                    </div>
+
+                </div> <!-- End App Content -->
+
+                <!-- MODAL: Why This Product (Screen 10) -->
+                <div id="why-modal" class="modal-overlay">
+                    <div class="bottom-sheet">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 id="modal-product-title" style="font-size: 1.05rem; font-weight: 800;">چرا این محصول؟</h3>
+                            <i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 1.2rem;" onclick="closeWhyModal()"></i>
+                        </div>
+                        
+                        <div id="modal-reasons-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                            <!-- Dynamic Content Inserted via JS -->
+                        </div>
+
+                        <button class="btn btn-primary" onclick="closeWhyModal(); goToScreen('view-11');">مشاهده محصول</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 2: USER FLOW VISUALIZATION -->
+    <section id="flow-section" class="section-container">
+        <div class="doc-section">
+            <h2><i class="fa-solid fa-diagram-project"></i> جریان کامل کاربر (User Flow Diagram)</h2>
+            <p style="margin-bottom: 25px;">نقشه مسیر حرکت کاربر از ورود تا ثبت بازخورد و خریدهای آتی:</p>
+            
+            <div class="flow-diagram">
+                <div class="flow-node">ورود / Hero</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">معرفی مشاور</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">کوییز زیبایی (۶ مرحله)</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">خلاصه پروفایل</div>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-node">محاسبه و لودینگ</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">پیشنهادها (۵ محصول)</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">چرا این محصول؟ (Modal)</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">صفحه محصول (PDP)</div>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-node">افزودن به سبد</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node">ثبت بازخورد (Feedback)</div>
+                <i class="fa-solid fa-arrow-left flow-arrow"></i>
+                <div class="flow-node future">محصول جایگزین (P1 / Future)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 3: RECOMMENDATION LOGIC & SCOPE -->
+    <section id="logic-section" class="section-container">
+        <div class="doc-section">
+            <h2><i class="fa-solid fa-brain"></i> منطق پیشنهاددهی و محدوده MVP</h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-gears"></i> موتور پیشنهاددهی مبتنی بر قواعد (Rule-Based Engine)</h3>
+                    <ul>
+                        <li><strong>تطابق دسته‌بندی:</strong> فیلتر اولیه بر اساس حوزه اصلی (مراقبت پوست / آرایشی / بهداشت شخصی / عطر و اسپری).</li>
+                        <li><strong>تطابق نوع پوست:</strong> الگوریتم ویژگی‌های پایه را با کاتالوگ مچ می‌کند.</li>
+                        <li><strong>فیلتر بودجه:</strong> حذف محصولات خارج از بازه قیمت انتخابی کاربر.</li>
+                        <li><strong>فیلتر منشأ برند:</strong> فیلتر کردن محصولات بر اساس منشأ تولید (ایرانی / خارجی / فرقی نمی‌کنه).</li>
+                        <li><strong>امتیازدهی هدف (Goal Scoring):</strong> تطابق خصوصیت بارز محصول با دغدغه اصلی.</li>
+                        <li><strong>محاسبه درصد تطابق:</strong> محاسبه امتیاز نهایی به صورت درصد شفاف (مثلاً ۹۸٪).</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-list-check"></i> محدوده فاز MVP</h3>
+                    <ul>
+                        <li>کوییز ۶ مرحله‌ای ساده و سریع</li>
+                        <li>فیلتر دسته‌بندی اصلی و منشأ برند (ایرانی/خارجی)</li>
+                        <li>نمایش ۵ محصول پیشنهادی برتر</li>
+                        <li>توضیح شفاف «چرا این محصول»</li>
+                        <li>امکان ویرایش پاسخ‌ها در پروفایل</li>
+                        <li>دکمه بازگشت هوشمند در تمام مراحل</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 4: UX PRINCIPLES -->
+    <section id="ux-section" class="section-container">
+        <div class="doc-section">
+            <h2><i class="fa-solid fa-heart"></i> اصول طراحی تجربه کاربری (UX Principles)</h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>کاهش سردرگمی در تصمیم‌گیری</h3>
+                    <p style="color: #ccc; line-height: 1.6;">به جای بمباران کاربر با صدها محصول، ۵ انتخاب هدفمند ارائه می‌شود تا نرخ تبدیل افزایش یابد.</p>
+                </div>
+                <div class="info-card">
+                    <h3>شفافیت کامل (Explainability)</h3>
+                    <p style="color: #ccc; line-height: 1.6;">هیچ ادعای مبهم هوش مصنوعی مطرح نمی‌شود. دلیل هر پیشنهاد کاملاً قابل درک به کاربر نشان داده می‌شود.</p>
+                </div>
+                <div class="info-card">
+                    <h3>اصطکاک پایین (Low Friction)</h3>
+                    <p style="color: #ccc; line-height: 1.6;">کوییز طراحی شده کمتر از ۲ دقیقه زمان می‌برد و امکان بازگشت به گام‌های قبلی به راحتی فراهم است.</p>
+                </div>
+                <div class="info-card">
+                    <h3>طراحی بومی‌سازی شده (Persian RTL)</h3>
+                    <p style="color: #ccc; line-height: 1.6;">کاملاً منطبق بر زبان بصری و هویت برند خانومی با تایپوگرافی فارسی استاندارد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State Storage
+        const screenHistory = ['view-1'];
+        const userAnswers = {
+            category: 'مراقبت پوست',
+            skin: 'خشک',
+            concern: 'خشکی و دهیدراته‌بودن',
+            goal: 'آبرسانی عمیق',
+            budget: 'متوسط (از ۱ تا ۳ میلیون تومان)',
+            origin: 'فرقی نمی‌کنه'
+        };
+
+        let selectedFeedbackReasonText = '';
+
+        // Navigation Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.section-container').forEach(sec => sec.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Screen Navigation inside Mobile Frame with History Tracking
+        function goToScreen(screenId) {
+            const currentScreen = screenHistory[screenHistory.length - 1];
+            if (currentScreen !== screenId) {
+                screenHistory.push(screenId);
+            }
+
+            updateHeaderBackButton();
+
+            document.querySelectorAll('.app-content .view').forEach(view => {
+                view.classList.remove('active');
+            });
+
+            const targetView = document.getElementById(screenId);
+            if(targetView) {
+                targetView.classList.add('active');
+            }
+        }
+
+        // Handle Back Button Action
+        function goBack() {
+            if (screenHistory.length > 1) {
+                screenHistory.pop(); // Remove current screen
+                const previousScreen = screenHistory[screenHistory.length - 1];
+
+                document.querySelectorAll('.app-content .view').forEach(view => {
+                    view.classList.remove('active');
+                });
+
+                const targetView = document.getElementById(previousScreen);
+                if(targetView) {
+                    targetView.classList.add('active');
+                }
+
+                updateHeaderBackButton();
+            }
+        }
+
+        // Toggle Header Back Button Visibility based on history
+        function updateHeaderBackButton() {
+            const backBtn = document.getElementById('header-back-btn');
+            if (screenHistory.length > 1 && screenHistory[screenHistory.length - 1] !== 'view-1') {
+                backBtn.style.visibility = 'visible';
+            } else {
+                backBtn.style.visibility = 'hidden';
+            }
+        }
+
+        // Option Selection Handler
+        function selectOption(element, category, value) {
+            const parent = element.parentElement;
+            parent.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            userAnswers[category] = value;
+            
+            // Update Summary Screen Elements
+            const summaryElem = document.getElementById(`summary-${category}`);
+            if(summaryElem) summaryElem.innerText = value;
+        }
+
+        // Loading Screen Transition
+        function startRecommendationLoading() {
+            goToScreen('view-8');
+            setTimeout(() => {
+                goToScreen('view-9');
+            }, 1200);
+        }
+
+        // Populate Product Detail Page dynamically
+        function showProductDetail(title, brand, price, imgUrl, origin) {
+            document.getElementById('pdp-title').innerText = title;
+            document.getElementById('pdp-brand').innerText = brand;
+            document.getElementById('pdp-price').innerText = price;
+            document.getElementById('pdp-img').src = imgUrl;
+            document.getElementById('pdp-origin').innerText = origin;
+            document.getElementById('cart-product-title').innerText = title;
+
+            if(origin === 'ایرانی') {
+                document.getElementById('pdp-origin').style.background = '#E8F5E9';
+                document.getElementById('pdp-origin').style.color = '#2E7D32';
+            } else {
+                document.getElementById('pdp-origin').style.background = '#F3E5F5';
+                document.getElementById('pdp-origin').style.color = '#7B1FA2';
+            }
+
+            goToScreen('view-11');
+        }
+
+        // Why This Product Modal Logic
+        function openWhyModal(title, reasons) {
+            document.getElementById('modal-product-title').innerText = title;
+            const container = document.getElementById('modal-reasons-list');
+            container.innerHTML = '';
+            
+            reasons.forEach(reason => {
+                const item = document.createElement('div');
+                item.style.cssText = 'display: flex; align-items: center; gap: 8px; font-size: 0.85rem; background: var(--primary-light); padding: 10px; border-radius: var(--radius-sm); color: var(--primary-color);';
+                item.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${reason}</span>`;
+                container.appendChild(item);
+            });
+
+            document.getElementById('why-modal').classList.add('active');
+        }
+
+        function closeWhyModal() {
+            document.getElementById('why-modal').classList.remove('active');
+        }
+
+        // Feedback Section Logic
+        function showFeedbackDetails(isPositive) {
+            const reasonBox = document.getElementById('negative-reason');
+            if(!isPositive) {
+                reasonBox.style.display = 'block';
+            } else {
+                reasonBox.style.display = 'none';
+                alert('ممنون از بازخورد مثبت شما!');
+                goToScreen('view-1');
+            }
+        }
+
+        // Handle Feedback Item Selection
+        function selectFeedbackReason(elem) {
+            const container = document.getElementById('feedback-options-container');
+            container.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            elem.classList.add('selected');
+            selectedFeedbackReasonText = elem.querySelector('span').innerText;
+        }
+
+        // Submit Feedback Action
+        function submitFeedback() {
+            const reasonBox = document.getElementById('negative-reason');
+            if(reasonBox.style.display === 'block' && !selectedFeedbackReasonText) {
+                alert('لطفاً یکی از دلایل را انتخاب کنید.');
+                return;
+            }
+            alert('سپاس! بازخورد شما با موفقیت ثبت شد.');
+            // Reset feedback screen
+            selectedFeedbackReasonText = '';
+            if(reasonBox) reasonBox.style.display = 'none';
+            document.querySelectorAll('#feedback-options-container .quiz-option').forEach(opt => opt.classList.remove('selected'));
+            goToScreen('view-1');
+        }
+    </script>
+</body>
+</html>
