@@ -17,11 +17,12 @@
 - UX Review برای Landing، Chatbot و Purchase Flow
 - DECAF Quantification برای ۳۰ سؤال
 - Documentation قابل ردیابی بین Confluence، GitHub، Jira و Figma
-- Prototype تعاملی آماده Validation
+- Prototype تعاملی V3 با شش سؤال، پنج پیشنهاد، PDP، Cart و Feedback
+- زنجیره تصویری Evidence تا Feature و Benchmark
 
 ## ساختار تعاملی
 
-ارائه ۱۴ اسلاید دارد. هر اسلاید دو سطح خواندن ارائه می‌کند:
+ارائه ۲۲ اسلاید دارد. هر اسلاید دو سطح خواندن ارائه می‌کند:
 
 1. روایت اصلی برای ارائه ۱۵ تا ۲۰ دقیقه‌ای
 2. دکمه **جزئیات** برای نمایش داده، روش، Caveat و لینک Artifactهای همان اسلاید
@@ -44,7 +45,7 @@
 - [Jira Project KAN](https://kohansal.atlassian.net/jira/software/projects/KAN/issues)
 - [Figma V2](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl)
 - [FigJam](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3)
-- [Prototype](../../design/prototype/index.html)
+- [Prototype V3](../../design/prototype/index.html)
 - [VOC Dashboard](../../discovery/voc/interactive-dashboard/index.html)
 
 ## وضعیت ادعا
