@@ -1,83 +1,65 @@
-# سؤال ۲۴ — Low-Fidelity Wireframe و Prototype
+# سؤال ۲۴ — Low-Fidelity Wireframe و Prototype V3
 
 ## پاسخ مستقیم
 
-برای Feature منتخب :: **Guided Beauty Decision Assistant** مسیر Low-Fidelity و Prototype تعاملی کامل شده است.
+برای Feature منتخب :: **Guided Beauty Decision Assistant** مسیر Low-Fidelity و Prototype تعاملی V3 کامل شده است.
 
-- [اجرای Prototype تعاملی](../../../design/prototype/index.html)
-- [مستند کامل Prototype](../../../design/prototype/)
+- [اجرای Prototype V3](../../../design/prototype/index.html)
+- [مستند و Change Log نسخه V3](../../../design/prototype/)
 - [Figma V2](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl)
-- [FigJam — نقشه تصمیم](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3)
+- [FigJam](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3)
 - [Q23 — User Journey](../q23/)
 
-## هدف طراحی
+## مسیر واقعی V3
 
-آیا کاربر می‌تواند بدون آموزش، از Need به Shortlist برسد، دلیل پیشنهاد را بفهمد، پاسخ خود را اصلاح کند و از نتیجه وارد PDP شود؟
+**Entry → Introduction → Six-step Quiz → Profile Summary → Five Recommendations → Why this product → PDP → Cart → Feedback**
 
-## مسیر طراحی‌شده
+شش ورودی Quiz عبارت‌اند از دسته، نوع پوست، دغدغه، هدف خرید، بودجه و ترجیح منشأ برند.
 
-**Entry → Need → Questions → Results → Why this product → Alternative → PDP / Cart → Feedback**
+## قابلیت‌های پیاده‌شده
 
-حالت‌های مکمل نیز در Prototype و مستند آن پوشش داده شده‌اند:
+- Progress و Back
+- Summary و Edit
+- پنج Recommendation نمایشی
+- Match Percentage نمایشی
+- Why this product
+- PDP و افزودن به سبد
+- Feedback مثبت یا منفی
+- User Flow و Rule-based Logic در تب‌های مستندات Prototype
 
-- Back و Edit
-- خروج امن به Browse
-- No-match
-- بازخورد منفی
-- محدودیت Safety و Medical Claim
-- محصول ناموجود
-- حفظ زمینه هنگام ورود به PDP
+## قابلیت‌های خارج از نسخه فعلی
 
-## اصول UX
+- Alternative مستقل :: P1 و Future
+- اتصال واقعی به Inventory
+- No-match مبتنی بر Catalog
+- Engine واقعی و کالیبره
+- Analytics واقعی
+- اثبات اثر بر Conversion یا Retention
 
-- یک تصمیم اصلی در هر Screen
-- Progress قابل مشاهده
-- امکان Back و Edit
-- عدم اجبار به استفاده از Feature
-- حداکثر سه Recommendation
-- توضیح روشن «چرا این محصول؟»
-- Alternative با Trade-off قابل فهم
-- عدم نمایش Medical Claim
-- پیشنهاد فقط برای SKU معتبر و موجود
-- پیام صادقانه در نبود Match
+## مرز ادعا
+
+عدد Match، Product Claim، قیمت، Rating و زمان تکمیل در Prototype محتوای نمایشی‌اند. V3 برای تست Flow و فهم Recommendation آماده است؛ موفقیت Feature هنوز باید با کاربر و داده رفتاری Validation شود.
+
+## Test Plan
+
+- ۵ تست مشاهده‌ای با Task واقعی
+- فهم سؤال‌ها و زمان تکمیل
+- Backtrack و Edit
+- فهم Why this product
+- واکنش به پنج گزینه
+- تمایل به ورود به PDP و Cart
+- اعتماد یا سوءبرداشت نسبت به Match Percentage
 
 ## وضعیت
 
 | Artifact | وضعیت |
 |---|---|
 | User Journey | کامل |
-| Low-Fidelity Flow | کامل |
-| Prototype کلیک‌پذیر | کامل |
-| مستند رفتار و Edge Stateها | کامل |
-| Figma Design | کامل |
-| تست مشاهده‌ای با کاربر | اقدام بعدی Validation |
-| اثبات اثر تجاری Feature | هنوز انجام نشده |
+| Low-Fi | کامل |
+| Prototype V3 | کامل |
+| مستند Scope و Caveat | کامل |
+| Figma | موجود |
+| Usability Validation | اقدام بعدی |
+| Behavioral Validation | اقدام بعدی |
 
-## Test Plan
-
-Prototype با ۵ کاربر هدف و Task واقعی تست شود. معیارها:
-
-- Task Completion
-- Hesitation و Backtrack
-- فهم دلیل Recommendation
-- تشخیص تفاوت Alternative
-- تمایل به کلیک PDP
-- توانایی بازگشت به Browse
-- واکنش کاربر به No-match و پیام‌های Safety
-
-## مرز ادعا
-
-کامل‌شدن Prototype به معنی Validationشدن Feature نیست. Artifact طراحی آماده تست است؛ اثر آن بر رفتار خرید باید با Fake Door، تست کاربردپذیری و Pilot کنترل‌شده بررسی شود.
-
-## منابع Evidence
-
-- Survey خریداران ۱۲ ماه اخیر خانومی
-- Survey کاربران Never و Lapsed
-- مصاحبه‌های عمیق کاربران
-- VOC و فروم‌های عمومی
-- UX Review پروژه خانومی
-- گزارش Product Data Gap و Recommendation Context
-- [MVP Definition](../../../solution/mvp/)
-- [Prototype Documentation](../../../design/prototype/)
-
-نسخه :: شهریور ۱۴۰۵
+نسخه :: V3 — شهریور ۱۴۰۵
