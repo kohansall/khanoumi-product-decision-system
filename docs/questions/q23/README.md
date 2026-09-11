@@ -103,7 +103,7 @@
 <thead>
 <tr class="header">
 <th><strong>Talk Track<br />
-</strong>«Journey جدید مسیر خرید خانومی را عوض نمی‌کند؛ فقط بین Discovery و Decision یک لایه guidance اضافه می‌کند. کاربر نیازش را می‌گوید، چند سؤال کوتاه جواب می‌دهد، سه پیشنهاد توضیح‌پذیر می‌گیرد و بعد به PDP و checkout فعلی برمی‌گردد. برای هر مرحله مسیر خروج و metric هم تعریف شده است.»</th>
+</strong>«Journey جدید مسیر خرید خانومی را عوض نمی‌کند؛ فقط بین Discovery و Decision یک لایه guidance اضافه می‌کند. کاربر نیازش را می‌گوید، چند سؤال کوتاه جواب می‌دهد، حداکثر پنج پیشنهاد توضیح‌پذیر می‌گیرد و بعد به PDP و checkout فعلی برمی‌گردد. برای هر مرحله مسیر خروج و metric هم تعریف شده است.»</th>
 </tr>
 </thead>
 <tbody>
@@ -117,6 +117,16 @@
 • Journey به Problem و MVP trace می‌شود.
 
 • کمبود: مشاهده usability واقعی برای اصلاح micro-steps لازم است.
+
+**Prototype V3 — مرجع اجرایی فعلی**
+
+• [اجرای تعاملی V3](https://htmlpreview.github.io/?https://github.com/kohansall/khanoumi-product-decision-system/blob/main/design/prototype/index.html)
+
+• [Source نسخه V3 در GitHub](https://github.com/kohansall/khanoumi-product-decision-system/blob/main/design/prototype/index.html)
+
+• V3 شامل ۶ سؤال، حداکثر ۵ پیشنهاد، Why This Product، PDP، Cart و Feedback است؛ Alternative در P1/Future باقی می‌ماند.
+
+• درصد Match، قیمت، Rating و Claimها داده نمایشی‌اند و نیاز به Validation دارند.
 
 **رفرنس‌ها**
 
