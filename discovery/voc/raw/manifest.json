@@ -1,6 +1,8 @@
 {
   "logical_dataset": "khanoumi-comments-anonymized.csv",
   "format": "csv-shards",
+  "row_count": 76837,
+  "unit": "crawled_comments",
   "parts": [
     "parts/khanoumi-comments-anonymized-part-001.csv",
     "parts/khanoumi-comments-anonymized-part-002.csv",
