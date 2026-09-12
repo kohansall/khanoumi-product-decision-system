@@ -38,7 +38,7 @@
 - [VOC cleaned canonical dataset](discovery/voc/cleaned/)
 - [فهرست Q01 تا Q30](docs/questions/)
 - [Final report](docs/final-report/)
-- [Final presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx)
+- [Final presentation :: HTML canonical](presentation/final-deck/index.html)
 - [Jira project KAN](https://kohansal.atlassian.net/jira/software/projects/KAN)
 - [Confluence START HERE](https://kohansal.atlassian.net/wiki/spaces/PM/pages/8028163)
 - [Figma V2](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl)
@@ -63,7 +63,7 @@
 | Interactive Prototype | [مشاهده Prototype](design/prototype/index.html) |
 | VOC Dashboard | [مشاهده داشبورد VOC](discovery/voc/interactive-dashboard/index.html) |
 | Survey Results | [مشاهده خروجی تعاملی دو Survey](discovery/user-research/surveys/survey-results-interactive.html) |
-| Final Presentation | [مشاهده ارائه نهایی](presentation/final-deck/) |
+| Final Presentation | [مشاهده ارائه تعاملی نهایی](presentation/final-deck/index.html) |
 | Final Audit Report | [مشاهده گزارش Audit](docs/final-report/audit-report.md) |
 
 ### Discovery و Problem Definition
@@ -138,7 +138,7 @@
 
 | سؤال | موضوع | پاسخ اصلی | خروجی نهایی |
 |---|---|---|---|
-| Q30 | یکپارچه‌سازی و ارائه نهایی | [مشاهده Q30](docs/questions/q30/) | [Final Report](docs/final-report/) و [Final Presentation](presentation/final-deck/) |
+| Q30 | یکپارچه‌سازی و ارائه نهایی | [مشاهده Q30](docs/questions/q30/) | [Final Report](docs/final-report/) و [Final Presentation](presentation/final-deck/index.html) |
 
 ### داده‌ها و Evidence
 
