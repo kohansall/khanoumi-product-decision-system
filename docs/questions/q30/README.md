@@ -12,6 +12,9 @@
 </tbody>
 </table>
 
+> [مشاهده ارائه تعاملی اصلی](../../../presentation/final-deck/index.html)  
+> [دانلود PowerPoint Export](../../../presentation/final-deck/khanoumi-final-presentation-fa.pptx)
+
 # <span dir="rtl">خلاصه فصل</span>
 
 <span dir="rtl">فصل آخر یک Feature جدید تولید نمی‌کند؛ کیفیت سیستم تصمیم را می‌سنجد. ارائه باید نشان دهد هر تصمیم از کدام Evidence آمده، چه چیزهایی هنوز Hypothesis هستند و چطور Confluence، Jira، Figma و فایل‌های تحلیلی یک روایت واحد می‌سازند.</span>
@@ -43,7 +46,7 @@
 | <span dir="rtl">Evidence registry/lineage</span>  | <span dir="rtl">15٪</span> | <span dir="rtl">داریم</span>           | <span dir="rtl">منبع حقیقت</span>            |
 | <span dir="rtl">Decision log</span>               | <span dir="rtl">10٪</span> | <span dir="rtl">داریم</span>           | <span dir="rtl">چرایی pivot/reframe</span>   |
 | <span dir="rtl">Confluence↔Jira↔Figma sync</span> | <span dir="rtl">15٪</span> | <span dir="rtl">بخشی قابل audit</span> | <span dir="rtl">یکپارچگی اجرا</span>         |
-| <span dir="rtl">Superseded claim control</span>   | <span dir="rtl">10٪</span> | <span dir="rtl">نیاز audit</span>      | <span dir="rtl">جلوگیری از تناقض</span>      |
+| <span dir="rtl">Superseded claim control</span>   | <span dir="rtl">10٪</span> | <span dir="rtl">Audit شده</span>       | <span dir="rtl">جلوگیری از تناقض</span>      |
 | <span dir="rtl">Final narrative</span>            | <span dir="rtl">15٪</span> | <span dir="rtl">داریم</span>           | <span dir="rtl">قابل فهم برای داور</span>    |
 | <span dir="rtl">Presentation constraints</span>   | <span dir="rtl">5٪</span>  | <span dir="rtl">داریم</span>           | <span dir="rtl">15–20 slide / 20 min</span>  |
 
