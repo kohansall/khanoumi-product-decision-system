@@ -1,12 +1,10 @@
-# Speaker Notes
+# Speaker notes
 
-Speaker Notes کامل برای ارائه ۲۲ اسلایدی ساخته شده است، اما به‌دلیل برچسب **Confidential** در Repository عمومی نگهداری نمی‌شود.
+فایل Speaker Notes وجود دارد و برای ارائه ۲۰ دقیقه‌ای استفاده می‌شود، اما با برچسب **Confidential** تهیه شده و صراحتاً برای انتشار در GitHub عمومی نیست.
 
-نسخه محرمانه شامل این موارد است:
+بنابراین این بخش Missing Artifact نیست؛ یک **Artifact موجود اما عمداً خارج از Repo عمومی** است. مرزهای ادعای اصلی آن در [Final Deck](../final-deck/) و اسناد Q01 تا Q30 منعکس شده‌اند:
 
-- زمان پیشنهادی هر اسلاید
-- متن پیشنهادی ارائه
-- مرز ادعا و Caveat هر اسلاید
-- پاسخ کوتاه به سؤال‌های محتمل داور
-
-این پوشه فقط وضعیت Artifact را ثبت می‌کند و عمداً فایل اصلی را منتشر نمی‌کند.
+- ۷۶٬۸۳۷ کامنت خام Crawl‌شده و ۳۹٬۷۳۷ رکورد Cleaned و Canonical، نه User
+- Selected for Validation، نه Validated Solution
+- Surveyها توصیف‌کننده نمونه‌اند، نه کل جامعه
+- بدون Product Analytics ادعای Frequency مسیر، Conversion یا Causality نداریم
