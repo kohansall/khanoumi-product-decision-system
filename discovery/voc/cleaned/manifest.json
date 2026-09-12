@@ -1,6 +1,8 @@
 {
   "logical_dataset": "khanoumi-comments-cleaned-anonymized.csv",
   "format": "csv-shards",
+  "row_count": 39737,
+  "unit": "cleaned_canonical_records",
   "parts": [
     "parts/khanoumi-comments-cleaned-anonymized-part-001.csv",
     "parts/khanoumi-comments-cleaned-anonymized-part-002.csv",
