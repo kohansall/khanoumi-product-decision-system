@@ -32,6 +32,7 @@
 
 ## دسترسی سریع
 
+- [Easy Access :: فهرست کامل لینک‌های پروژه](EASY-ACCESS.md)
 - [Prototype تعاملی](design/prototype/index.html)
 - [VOC dashboard](discovery/voc/interactive-dashboard/)
 - [VOC cleaned canonical dataset](discovery/voc/cleaned/)
