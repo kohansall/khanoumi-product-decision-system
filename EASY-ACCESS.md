@@ -8,7 +8,7 @@
 |---|---|
 | خلاصه کل پروژه و تصمیم نهایی را ببینی | [README اصلی](README.md) |
 | پاسخ نهایی و Caveatها را بخوانی | [Final Report](docs/final-report/) |
-| ارائه نهایی را دانلود کنی | [Final Presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx) |
+| ارائه تعاملی اصلی را ببینی | [Final Presentation :: HTML](presentation/final-deck/index.html) |
 | Feature منتخب را ببینی | [Feature Selection](solution/feature-selection/) |
 | مسیر MVP را ببینی | [MVP](solution/mvp/) |
 | Prototype را ببینی | [Interactive Prototype](design/prototype/index.html) |
@@ -69,7 +69,7 @@
 | Q27 | مدل هزینه | [پاسخ Q27](docs/questions/q27/) | [Cost Model](business/cost-model/) |
 | Q28 | پیش‌بینی درآمد | [پاسخ Q28](docs/questions/q28/) | [Revenue Forecast](business/revenue-forecast/) |
 | Q29 | ROI و Payback | [پاسخ Q29](docs/questions/q29/) | [ROI and Payback](business/roi-payback/) |
-| Q30 | یکپارچه‌سازی و ارائه نهایی | [پاسخ Q30](docs/questions/q30/) | [Final Report](docs/final-report/) و [Presentation](presentation/final-deck/) |
+| Q30 | یکپارچه‌سازی و ارائه نهایی | [پاسخ Q30](docs/questions/q30/) | [Final Report](docs/final-report/) و [Presentation](presentation/final-deck/index.html) |
 
 ## اگر دنبال Research و Evidence هستی
 
@@ -173,7 +173,8 @@
 
 | اگر می‌خواهی... | برو اینجا |
 |---|---|
-| فایل PowerPoint نهایی را دانلود کنی | [Final Presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx) |
+| ارائه تعاملی اصلی را اجرا کنی | [Final Presentation :: HTML](presentation/final-deck/index.html) |
+| نسخه PowerPoint را به‌عنوان Export دانلود کنی | [PowerPoint Export](presentation/final-deck/khanoumi-final-presentation-fa.pptx) |
 | توضیح نسخه نهایی را ببینی | [Final Deck README](presentation/final-deck/) |
 | وضعیت Speaker Notes را بدانی | [Speaker Notes Policy](presentation/speaker-notes/) |
 | تصاویر ارائه را ببینی | [Presentation Visuals](presentation/visuals/) |
@@ -199,4 +200,4 @@
 
 ---
 
-اگر هنوز نمی‌دانی از کجا شروع کنی :: ابتدا [README اصلی](README.md)، سپس [Q30](docs/questions/q30/) و در پایان [Final Presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx) را ببین.
+اگر هنوز نمی‌دانی از کجا شروع کنی :: ابتدا [README اصلی](README.md)، سپس [Q30](docs/questions/q30/) و در پایان [Final Presentation](presentation/final-deck/index.html) را ببین.
