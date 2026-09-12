@@ -4,6 +4,9 @@
 
 > وضعیت تصمیم :: **Guided Beauty Decision Assistant — Selected for Validation**  
 > این Feature هنوز Validation‌شده نیست. شواهد فعلی Opportunity را پشتیبانی می‌کنند، نه موفقیت قطعی راه‌حل را.
+>
+> مقیاس VOC :: **۷۶٬۸۳۷ کامنت خام Crawl‌شده → ۳۹٬۷۳۷ رکورد Cleaned و Canonical**  
+> این اعداد تعداد کامنت‌اند، نه تعداد کاربر. کاهش تعداد نتیجه کنترل Lineage، پاک‌سازی و Deduplication است.
 
 ## فهرست اصلی
 
@@ -29,12 +32,12 @@
 
 ## دسترسی سریع
 
-- [Prototype تعاملی V3](design/prototype/index.html)
+- [Prototype تعاملی](design/prototype/index.html)
 - [VOC dashboard](discovery/voc/interactive-dashboard/)
 - [VOC cleaned canonical dataset](discovery/voc/cleaned/)
 - [فهرست Q01 تا Q30](docs/questions/)
 - [Final report](docs/final-report/)
-- [Final interactive presentation](presentation/final-deck/index.html)
+- [Final presentation](presentation/final-deck/khanoumi-final-presentation-fa.pptx)
 - [Jira project KAN](https://kohansal.atlassian.net/jira/software/projects/KAN)
 - [Confluence START HERE](https://kohansal.atlassian.net/wiki/spaces/PM/pages/8028163)
 - [Figma V2](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl)
@@ -56,8 +59,9 @@
 | Jira Project KAN | [مشاهده پروژه Jira](https://kohansal.atlassian.net/jira/software/projects/KAN/issues) |
 | Figma Design | [مشاهده طراحی](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl) |
 | FigJam Board | [مشاهده FigJam](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3) |
-| Interactive Prototype V3 | [مشاهده Prototype](design/prototype/index.html) |
+| Interactive Prototype | [مشاهده Prototype](design/prototype/index.html) |
 | VOC Dashboard | [مشاهده داشبورد VOC](discovery/voc/interactive-dashboard/index.html) |
+| Survey Results | [مشاهده خروجی تعاملی دو Survey](discovery/user-research/surveys/survey-results-interactive.html) |
 | Final Presentation | [مشاهده ارائه نهایی](presentation/final-deck/) |
 | Final Audit Report | [مشاهده گزارش Audit](docs/final-report/audit-report.md) |
 
@@ -115,7 +119,7 @@
 | سؤال | موضوع | پاسخ اصلی | Design Artifact |
 |---|---|---|---|
 | Q23 | سفر جدید کاربر | [مشاهده Q23](docs/questions/q23/) | [User Journey](design/user-journey/) |
-| Q24 | Low-Fidelity Wireframes | [مشاهده Q24](docs/questions/q24/) | [Low-Fi](design/low-fi/)، [Prototype V3](design/prototype/index.html)، [Figma](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl) و [FigJam](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3) |
+| Q24 | Low-Fidelity Wireframes | [مشاهده Q24](docs/questions/q24/) | [Low-Fi](design/low-fi/)، [Prototype](design/prototype/index.html)، [Figma](https://www.figma.com/design/y7r2zCBHGz1gVHsZ2MArWl) و [FigJam](https://www.figma.com/board/tbsGkzv48y5wmnChZqpTB3) |
 
 > Q23 و Q24 Artifact طراحی هستند؛ بنابراین برای آن‌ها Confidence پژوهشی DECAF تولید نشده است.
 
